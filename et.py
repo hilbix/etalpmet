@@ -33,7 +33,7 @@ class EtElEOF(EtEl):
 class EtElEOL(EtEl):
 	def match(self, state):
 		if len(state.l):
-			raise EtNoMatch(state, 'EOF')
+			raise EtNoMatch(state, 'EOL, not matched: ['+state.l+']')
 		state.p += 1
 
 class EtElStr(EtEl):
