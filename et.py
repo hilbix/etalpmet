@@ -109,7 +109,7 @@ class EtCompile(object):
 			if e[0].startswith('}'):
 				s.append(e.pop(0)[1:])
 			elif e[0].startswith('//}'):
-				s.append(e.pop(0)[4:])
+				s.append(e.pop(0)[3:])
 			else:
 				break
 		s = ''.join(s)
@@ -180,7 +180,7 @@ class Et(object):
 		return self.match(StringIO(s))
 
 	def match_file(self, name):
-		with open(name, 'r') as f:
+		with name == "-" and sys.stdin or open(name, 'r') as f:
 			return self.match(f)
 
 	def match(self, f):
